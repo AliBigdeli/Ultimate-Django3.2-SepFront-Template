@@ -14,11 +14,11 @@ server {
     error_log /var/log/nginx/error_log.log;
 
     # Let's Encrypt parameters
-    ssl_certificate /etc/ssl/combined.crt;
-	ssl_certificate_key /etc/ssl/privkey.key;
+    ssl_certificate     /etc/letsencrypt/live/${DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${DOMAIN}/privkey.pem;
+    # keepalive_timeout   70;
 
     
-    # keepalive_timeout   70;
     ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
     ssl_ciphers         AES128-SHA:AES256-SHA:RC4-SHA:DES-CBC3-SHA:RC4-MD5;
     ssl_prefer_server_ciphers on;
