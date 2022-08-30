@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
-COPY ./config/* /etc/nginx/
-COPY ./entrypoint.sh /entrypoint.sh
+COPY ./dockerfiles/prod/nginx/config/* /etc/nginx/
+COPY ./dockerfiles/prod/nginx/entrypoint.sh /entrypoint.sh
 
 USER root
 
