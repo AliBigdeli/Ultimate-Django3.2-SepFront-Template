@@ -206,10 +206,10 @@ MIT.
 - [x] fix production composefile
 - [x] add development usage doc
 - [ ] add test usage doc
-- [ ] add encryptions
-- [ ] add 3 stages dev stageing production
-- [ ] add certbot for auto certificate creation
-- [ ] add production usage doc
+- [x] add encryptions
+- [x] add 3 stages dev stageing production
+- [x] add certbot for auto certificate creation
+- [x] add production usage doc
 
 # Bugs
 Feel free to let me know if something needs to be fixed. or even any features seems to be needed in this repo.
