@@ -21,7 +21,7 @@ services:
   backend:
     build: 
       context: .
-      dockerfile: dockerfiles/stage/django/Dockerfile
+      dockerfile: ./dockerfiles/stage/django/Dockerfile
     container_name: backend
     volumes:
       - static_volume:/usr/src/app/static
@@ -51,7 +51,7 @@ services:
     container_name: nginx
     build:
       context: .
-      dockerfile: /dockerfiles/prod/nginx/Dockerfile
+      dockerfile: ./dockerfiles/prod/nginx/Dockerfile
     restart: always
     env_file:
       - ./envs/prod/nginx/.env
