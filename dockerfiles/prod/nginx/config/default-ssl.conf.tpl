@@ -34,11 +34,6 @@ server {
     # limit_req zone=mylimit burst=20 delay=20;
     # limit_req_status 429;
 
-    # extra headers 
-    add_header X-Frame-Options "SAMEORIGIN";
-    add_header X-XSS-Protection "1; mode=block";
-    add_header X-Content-Type-Options "nosniff";
-
 
     # charset config
     charset     utf-8;
@@ -80,8 +75,8 @@ server {
 
     location @proxy_api {
         
-        #proxy_pass_request_headers on;
-        #proxy_buffering on;
+        # proxy_pass_request_headers on;
+        # proxy_buffering on;
         # proxy_buffers 8 24k;
         # proxy_buffer_size 2k;
         # proxy_redirect      off;
