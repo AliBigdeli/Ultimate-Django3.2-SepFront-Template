@@ -46,7 +46,7 @@ services:
     volumes:
       - static_volume:/home/app/static
       - media_volume:/home/app/media
-      - ./app/output/:/usr/share/nginx/html
+      - ./app/:/usr/share/nginx/html
     depends_on:
       - backend
 

@@ -65,7 +65,7 @@ services:
       - proxy_dhparams:/vol/proxy
       - certbot_certs_volume:/etc/letsencrypt/
       - ./dockerfiles/prod/nginx/config:/etc/nginx/templates
-      - ./app/output/:/usr/share/nginx/html
+      - ./app/:/usr/share/nginx/html
 
     depends_on:
       - backend
