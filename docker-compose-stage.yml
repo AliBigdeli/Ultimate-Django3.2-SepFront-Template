@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  redis:
+    container_name: redis
+    image: redis:6.2.7-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --save 60 1 --loglevel warning
+
+  db:
+    container_name: db
+    image: postgres:13-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - envs/stage/db/.env
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: dockerfiles/stage/django/Dockerfile
+    container_name: backend
+    volumes:
+      - static_volume:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    expose:
+      - "8000"
+    env_file:
+      - envs/stage/django/.env
+    depends_on:
+      - redis
+      - db
+
+  
+  nginx:
+    build:
+      context: .
+      dockerfile: dockerfiles/stage/nginx/Dockerfile
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - static_volume:/home/app/static
+      - media_volume:/home/app/media
+      - ./app/output/:/usr/share/nginx/html
+    depends_on:
+      - backend
+
+volumes:
+  static_volume:
+  media_volume:
+  postgres_data:
+
