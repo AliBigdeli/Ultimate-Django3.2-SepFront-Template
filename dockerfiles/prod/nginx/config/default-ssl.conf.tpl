@@ -6,7 +6,6 @@ server {
 
 server {
     listen 443 ssl;
-    ssl on;    
 
     server_name ${DOMAIN} www.${DOMAIN};
     
