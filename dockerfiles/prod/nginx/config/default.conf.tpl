@@ -13,8 +13,9 @@ server {
     }
 
 
-    location / {        
-        proxy_redirect     off;
-        proxy_pass   http://backend:8000;
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
     }
 }
