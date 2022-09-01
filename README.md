@@ -35,8 +35,9 @@ This project main goal is to provide a way to deploy django applications by usin
 you can watch this video to know how you can use this repo
 
 <a href="#" target="_blank">
-<img src="https://user-images.githubusercontent.com/29748439/187870256-4aa5a6e6-78c9-4db2-af8f-756bd1c6ae53.jpg" alt="video" style="max-width:1280" />
+<img src="https://user-images.githubusercontent.com/29748439/188005951-e35c2ef9-76d7-4389-a0ff-27106a6b385a.jpg" alt="video" style="max-width:1280" />
 </a>
+
 
 # Repo Features
 <ul>
