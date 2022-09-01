@@ -34,8 +34,8 @@ This project main goal is to provide a way to deploy django applications by usin
 # How to setup
 you can watch this video to know how you can use this repo
 
-<a href="https://youtu.be/3tKarSHzBy4" target="_blank">
-<img src="https://user-images.githubusercontent.com/29748439/187853601-32075d8d-2512-4825-aa4f-c0231ae9daf9.jpg" alt="video" style="max-width:1280" />
+<a href="#" target="_blank">
+<img src="https://user-images.githubusercontent.com/29748439/187870256-4aa5a6e6-78c9-4db2-af8f-756bd1c6ae53.jpg" alt="video" style="max-width:1280" />
 </a>
 
 # Repo Features
@@ -211,13 +211,8 @@ docker compose -f docker-compose-prod.yml  run --rm certbot /opt/certify-init.sh
 MIT.
 
 # Todo
-- [x] fix production composefile
-- [x] add development usage doc
-- [ ] add test usage doc
-- [x] add encryptions
-- [x] add 3 stages dev stageing production
-- [x] add certbot for auto certificate creation
-- [x] add production usage doc
+- [ ] add api test docs
+- [ ] add predefined commands
 
 # Bugs
 Feel free to let me know if something needs to be fixed. or even any features seems to be needed in this repo.
