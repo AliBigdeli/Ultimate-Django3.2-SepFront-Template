@@ -17,6 +17,7 @@
     
 # Guideline
 - [Goal](#goal)
+- [How to setup](#how-to-setup)
 - [Repo Features](#repo-features)
 - [Configurations](#configurations)
 - [Development usage](#development-usage)
