@@ -23,6 +23,7 @@
 - [Development usage](#development-usage)
 - [Testing usage](#testing-usage)
 - [Production usage](#production-usage)
+- [Security](#security)
 - [License](#license)
 - [Todo](#todo)
 - [Bugs](#bugs)
@@ -207,6 +208,21 @@ after creating the files all you need to do to build the project is to run the c
 docker compose -f docker-compose-prod.yml  run --rm certbot /opt/certify-init.sh
 ```
 <strong>Note:</strong>the command i provided will firstly create the containers and volumes to run the whole project, then it will create a container to access the running server, when the server is accessible it will ask letsencrypt server to create a certificate for it with acme challange. this certificate will be valid for 90 days and you can renew it when ever you want.
+
+
+# Security
+On Production mode you have all the security headers and settings added to nginx and even auto ssl encryption for 90 days valid. you can find the results by using these services:
+- Mozilla Observatory
+
+<img src="https://user-images.githubusercontent.com/29748439/188070197-ab6c2998-4cfd-495e-a684-5b00d526e7e5.png" alt="security headers" style="max-width:1280px;width:100%" />
+
+- Security Headers
+<img src="https://user-images.githubusercontent.com/29748439/188070068-67a16c8f-3705-4fd0-b98a-a14fd53e98b2.png" alt="security headers" style="max-width:1280px;width:100%" />
+
+- SSL Checker
+<img src="https://user-images.githubusercontent.com/29748439/188070268-bbb70b90-3516-46e6-9799-7342fb63f7f5.png" alt="security headers" style="max-width:200px;width:100%; max-height:400px;text-align:center" />
+
+
 
 # License
 MIT.
