@@ -35,7 +35,7 @@ This project main goal is to provide a way to deploy django applications by usin
 # How to setup
 you can watch this video to know how you can use this repo
 
-<a href="#" target="_blank">
+<a href="https://www.youtube.com/watch?v=nan3Y7vpSOQ" target="_blank">
 <img src="https://user-images.githubusercontent.com/29748439/188005951-e35c2ef9-76d7-4389-a0ff-27106a6b385a.jpg" alt="video" style="max-width:1280" />
 </a>
 
