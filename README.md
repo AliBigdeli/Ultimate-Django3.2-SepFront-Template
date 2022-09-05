@@ -210,7 +210,7 @@ docker compose -f docker-compose-prod.yml  run --rm certbot /opt/certify-init.sh
 <strong>Note:</strong>the command i provided will firstly create the containers and volumes to run the whole project, then it will create a container to access the running server, when the server is accessible it will ask letsencrypt server to create a certificate for it with acme challange. this certificate will be valid for 90 days and you can renew it when ever you want.
 <strong>Note:</strong> if you are using arm base cpu, please go inside the docker file inside of dockerfiles/prod/certbot/dockerfile and change the image name from
 ```bash
-FROM certbot/certbot:latest
+FROM certbot/certbot:v1.27.0
 ```
 to
 
