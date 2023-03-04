@@ -98,25 +98,16 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": config("DB_ENGINE", default="django.db.backends.postgresql"),
+        "NAME": config("DB_NAME", default="postgres"),
+        "USER": config("DB_USER", default="postgres"),
+        "PASSWORD": config("DB_PASS", default="postgres"),
+        "HOST": config("DB_HOST", default="db"),
+        "PORT": config("DB_PORT", cast=int, default=5432),
     }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": config("DB_ENGINE", default="django.db.backends.postgresql"),
-            "NAME": config("DB_NAME", default="postgres"),
-            "USER": config("DB_USER", default="postgres"),
-            "PASSWORD": config("DB_PASS", default="postgres"),
-            "HOST": config("DB_HOST", default="db"),
-            "PORT": config("DB_PORT", cast=int, default=5432),
-        }
-    }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -269,33 +260,35 @@ SIMPLE_JWT = {
 }
 
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "simple": {
-            "format": "%(levelname)s %(asctime)s %(name)s.%(funcName)s:%(lineno)s- %(message)s"
+
+if config("FILE_DEBUGGER",cast=bool, default=True):
+    LOGGING = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "formatters": {
+            "simple": {
+                "format": "%(levelname)s %(asctime)s %(name)s.%(funcName)s:%(lineno)s- %(message)s"
+            },
         },
-    },
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+            },
+            "file": {
+                "level": "DEBUG",
+                "class": "logging.FileHandler",
+                "filename": "log.django",
+                "formatter": "simple",
+            },
         },
-        "file": {
-            "level": "DEBUG",
-            "class": "logging.FileHandler",
-            "filename": "log.django",
-            "formatter": "simple",
+        "loggers": {
+            "django": {
+                "handlers": ["console", "file"],
+                "level": config("DJANGO_LOG_LEVEL", default="WARNING"),
+                "propagate": True,
+            },
         },
-    },
-    "loggers": {
-        "django": {
-            "handlers": ["console", "file"],
-            "level": config("DJANGO_LOG_LEVEL", default="WARNING"),
-            "propagate": True,
-        },
-    },
-}
+    }
 
 # django debug toolbar for docker usage
 if SHOW_DEBUGGER_TOOLBAR:
