@@ -18,6 +18,12 @@ services:
       - envs/stage/db/.env
     restart: always
 
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   backend:
     build:
       context: .
